@@ -10,7 +10,7 @@ Also, I want to look back over what I've done on my system in case I have no ide
 
 ### Note
 
-I am dual booting NixOS with Windows on two SSD's and am using a data partition so both operating systems can access some of the same files. 
+I am dual booting NixOS with Windows on two SSD's and am using a data partition so both operating systems can access some of the same files (which are the files in the partition).
 
 How I'm setting my laptop up: (I don't think it matters which SSD Windows and NixOS are on)
 
