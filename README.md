@@ -2,7 +2,7 @@
 
 ## Background Info
 
-I have been using Linux for about 2 years now: 1 year on EndeavourOS (using XFCE) and 1 year on Arch Linux (the first half year I used i3 and the second half year I used Hyprland). For others reading, this is a warning that I might skip over some things but just let me know if you want more info on something (create an issue?) and I'll update this journal/guide. Hopefully I'll keep adding to this and will make this clearer and more robust.
+I have been using Linux for about 2 years now: 1 year on EndeavourOS (using XFCE) and 1 year on Arch Linux (the first half year I used i3 and the second half year I used Hyprland). For others reading, this is a warning that I might skip over some things but just let me know if you want more info on something (create an issue?) and I'll update this journal/guide. Hopefully I'll keep adding to this and will make this clearer and more robust. Also, I am purposely adding redundancy if it helps make something clearer.
 
 In addition, I have used NixOS once before during the school year, but only for around a week, so I never was able to properly use it. I'm going to document my journey using NixOS here since the documentation isn't the best and it's kinda confusing watching videos that don't really build off each other. The reason why it's hard to follow videos that don't build off each other is that they often use different things and are set up differently, such as some use home manager or flakes, others don't.
 
@@ -50,4 +50,28 @@ To [download NixOS](https://nixos.org/download/), go to the 'NixOS : the Linux d
 
 Use Rufus to flash the ISO onto the flash drive and then boot into it. I'm using the GNOME installer so I'll go through that.
 
-### Parting the Disk
+### Welcome, Location, and Keyboard
+
+Just choose your language, location, and keyboard. Usually whatever the default is will be correct but change it if needed.
+
+### Users
+
+Add your name, username, user password, and admin (root) password. Here's a good explaination on (name vs username)[https://askubuntu.com/a/399556] in case you're confused.
+
+### Desktop
+
+I will be using Hyprland so I will choose the 'No desktop' option; you choose whatever you want. 
+
+### Unfree Software
+
+I recommend you check the 'Allow unfree software' checkbox in the 'Unfree Software' section.
+
+### Partitions
+
+
+
+### Summary
+
+Make sure everything is correct and press the 'Install' button.
+
+I think this part deserves its own section
