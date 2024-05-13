@@ -56,7 +56,7 @@ Just choose your language, location, and keyboard. Usually whatever the default 
 
 ### Users
 
-Add your name, username, user password, and admin (root) password. Here's a good explaination on (name vs username)[https://askubuntu.com/a/399556] in case you're confused.
+Add your name, username, user password, and admin (root) password. Here's a good explaination on [name vs username](https://askubuntu.com/a/399556) in case you're confused.
 
 ### Desktop
 
