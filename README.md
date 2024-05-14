@@ -82,6 +82,7 @@ Optional Partitions:
 
 ![image](https://github.com/hmmmIndeed/nixos-journey/assets/73439762/91c0191b-0d4a-4406-aad3-f0f642e88389)
 
+The partitions in that order are: boot, swap, root, and data
 
 ### Summary
 
