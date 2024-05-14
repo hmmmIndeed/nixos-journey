@@ -4,7 +4,7 @@
 
 I have been using Linux for about 2 years now: 1 year on EndeavourOS (using XFCE) and 1 year on Arch Linux (the first half year I used i3 and the second half year I used Hyprland). For others reading, this is a warning that I might skip over some things but just let me know if you want more info on something (create an issue?) and I'll update this journal/guide. Hopefully I'll keep adding to this and will make this clearer and more robust (correct me if something is wrong though). Also, I am purposely adding redundancy if it helps make something clearer.
 
-In addition, I have used NixOS once before during the school year, but only for around a week, so I never was able to properly use it. I'm going to document my journey using NixOS here since the documentation isn't the best and it's kinda confusing watching videos that don't really build off each other. The reason why it's hard to follow videos that don't build off each other is that they often use different things and are set up differently, such as some use home manager or flakes, others don't.
+In addition, I have used NixOS once before during the school year, but only for around a week, so I never was able to properly use it. I'm going to document my journey using NixOS here since the documentation isn't the best and it's kinda confusing watching videos that don't really build off each other. The reason why it's hard to follow videos that don't build off each other is that they often use different things and are set up differently, such as some use home manager or flakes, others don't. Keep in mind that since there are so many ways to set up NixOS that mine is only one way and it may not be the best way.
 
 Also, I want to look back over what I've done on my system in case I have no idea what I previously did; it'll help me understand my previous saves. This is public so hopefully it'll help someone as confused as I am.
 
@@ -68,24 +68,27 @@ I recommend you check the 'Allow unfree software' checkbox in the 'Unfree Softwa
 
 ### Partitions
 
-If you're using multiple SSD's, make sure you're using the correct SSD.
+If you're using multiple SSD's, make sure you're using the correct SSD. If the SSD is blank and/or new, create a new parition table and format it as GPT.
 
 To install NixOS, you need at least two partitions: the boot partition and the one with NixOS (the / parition). A swap partition and a data partition aren't required for NixOS but will be nice if you wanna use them.
 
 Required Partitions:
-* Boot Partition: Generally, a boot partition can be under 500 MB but mine is 1 GB just in case. It should also be FAT32 and have a mount point of /boot
+* Boot Partition: Generally, a boot partition can be under 500 MB but mine is 1 GB just in case. It should also be FAT32 and have a mount point of /boot. Also, flag it as boot.
 * Root Partition: This partition should be how ever much space you want for NixOS which is usually the rest of the storage on the SSD. It should be ext4 and have a mount point of /.
 
 Optional Partitions:
-* Swap Partition: It can be used for virtual memory ([when the hard drive is used for memory](https://wiki.archlinux.org/title/swap)) and/or hibernation ([saves machine state to the swap partition and powers the machine off](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate)). I used [this](https://askubuntu.com/a/49138) to decide how much storage my swap parition should take. I have 16 GB of RAM and want to use hibernation (which btw only really useful for laptop since it saves power in contrast to sleep) so my swap partition is 24 GB.
-* Data Partition: I'm using this to store data that both NixOS and Windows can access. It must be NTFS so windows can access it (it'll be under the D: parition instead of the usual C: partition). I just used the rest of my SSD for this partition.
+* Swap Partition: It can be used for virtual memory ([when the hard drive is used for memory](https://wiki.archlinux.org/title/swap)) and/or hibernation ([saves machine state to the swap partition and powers the machine off](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate)). I used [this](https://askubuntu.com/a/49138) to decide how much storage my swap parition should take. I have 16 GB of RAM and want to use hibernation (which btw only really useful for laptop since it saves power in contrast to sleep) so my swap partition is 24 GB. Also, flag it as swap.
+* Data Partition: I'm using this to store data that both NixOS and Windows can access. It must be NTFS so windows can access it (it'll be under the D: parition instead of the usual C: partition). I just used the rest of my SSD for this partition so leave it as unformatted when installing NixOS. **Don't create this partition when installing NixOS!!! You must do it later!!!**
 
 ![image](https://github.com/hmmmIndeed/nixos-journey/assets/73439762/91c0191b-0d4a-4406-aad3-f0f642e88389)
 
 The partitions in that order are: boot, swap, root, and data
 
-### Summary
+### Summary, Install, and Finish
 
-Make sure everything is correct and press the 'Install' button.
+Make sure everything is correct and press the 'Install' button. It'll take a bit to install NixOS but once it finishes you're ready to go!
 
-I think this part deserves its own section
+If you want a data partition, open GParted, switch to the correct SSD if it's not already on it, and choose the unformatted space. Make it NTFS and then format it.
+
+## Setting Up NixOS with Hyprland
+
