@@ -92,7 +92,12 @@ If you want a data partition, open GParted, switch to the correct SSD if it's no
 
 ## Setting Up NixOS
 
-To start off, the NixOS configuration files that come with the system are located in ```/etc/nixos``` and the two default files are ```configuration.nix``` and ```hardware-configuration.nix```. ```hardware-configuration.nix``` should be left alone so all the configuration will happen in ```configuration.nix``` and other files you'll make.
+To start off, I used quite a few resources for this part so I'm just going to link them here:
+
+[Nixos and Hyprland - Best Match Ever](https://www.youtube.com/watch?v=61wGzIv12Ds) by Vimjoyer
+
+
+The NixOS configuration files that come with the system are located in ```/etc/nixos``` and the two default files are ```configuration.nix``` and ```hardware-configuration.nix```. ```hardware-configuration.nix``` should be left alone so all the configuration will happen in ```configuration.nix``` and other files you'll make.
 
 I would also recommend connecting to the Internet with ```nmtui```.
 
@@ -102,6 +107,16 @@ Use these commands to access ```configuration.nix``` (I like cd'ing into the dir
     sudoedit configuration.nix
 
 If you plan on using Hyprland, add these lines to your ```configuration.nix```:
+
+This enables Hyprland
+
+    programs.hyprland.enable = true;
+
+by the way it's the same thing as
+
+    programs.hyprland = {
+      enable = true;
+    };
 
 
 
