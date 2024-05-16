@@ -90,5 +90,25 @@ Make sure everything is correct and press the 'Install' button. It'll take a bit
 
 If you want a data partition, open GParted, switch to the correct SSD if it's not already on it, and choose the unformatted space. Make it NTFS and then format it.
 
-## Setting Up NixOS with Hyprland
+## Setting Up NixOS
 
+To start off, the NixOS configuration files that come with the system are located in ```/etc/nixos``` and the two default files are ```configuration.nix``` and ```hardware-configuration.nix```. ```hardware-configuration.nix``` should be left alone so all the configuration will happen in ```configuration.nix``` and other files you'll make.
+
+I would also recommend connecting to the Internet with ```nmtui```.
+
+Use these commands to access ```configuration.nix``` (I like cd'ing into the directory first)
+
+    cd /etc/nixos
+    sudoedit configuration.nix
+
+If you plan on using Hyprland, add these lines to your ```configuration.nix```:
+
+
+
+### Flakes
+
+The purpose of flakes is it's what allows your system to be truely reproduceable. To enable it, add this line into ```configuration.nix```:
+
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+I like putting it under the area where the hostname is defined but it shouldn't matter where it is.
