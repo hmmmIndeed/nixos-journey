@@ -112,13 +112,37 @@ This enables Hyprland
 
     programs.hyprland.enable = true;
 
-by the way it's the same thing as
+which is the same thing as
 
     programs.hyprland = {
       enable = true;
     };
 
+but with different syntax.
 
+For example, ```i.am.not.john = true;``` is the same as
+
+    i.am.not = {
+      john = true;
+    }
+
+and
+
+    i.am = {
+      not.john = true;
+    }
+
+and
+
+    i.am = {
+      not = {
+        john = true;
+      }
+    }
+
+You get the idea. Anyways, once that Hyprland stuff is added, save the file and rebuild and switch to that new version with
+
+    sudo nixos-rebuild switch
 
 ### Flakes
 
@@ -127,3 +151,13 @@ The purpose of flakes is it's what allows your system to be truely reproduceable
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 I like putting it under the area where the hostname is defined but it shouldn't matter where it is.
+
+Next, save the file and run
+
+    sudo nixos-rebuild switch
+
+Now that flakes are enabled, run this to create a flake in your directory
+
+    sudo nix flake init
+
+
