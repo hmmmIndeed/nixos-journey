@@ -156,8 +156,31 @@ Next, save the file and run
 
     sudo nixos-rebuild switch
 
-Now that flakes are enabled, run this to create a flake in your directory
+Now that flakes are enabled, run this to create a simple example flake in your directory. This can be used as a template to create your first flake.
 
     sudo nix flake init
 
+Now let's change it to the code below, replaceing <hostname> with the hostname of your system (if you're not sure, just run ```hostname``` in the terminal)
+
+    {
+      description = "A very basic flake";
+    
+      inputs = {
+        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+      };
+  
+      outputs = { self, nixpkgs, ... }:
+        let
+          lib = nixpkgs.lib;
+        in {
+        nixosConfigurations = {
+          <hostname> = lib.nixosSystem {
+            system = "x86_64-linux";
+	        modules = [./configuration.nix];
+          };
+        };
+      };
+    }
+
+I'll break the nix code down for you.
 
