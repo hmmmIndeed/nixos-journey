@@ -184,3 +184,39 @@ Now let's change it to the code below, replaceing <hostname> with the hostname o
 
 I'll break the nix code down for you.
 
+### HomeManager
+
+Here's a good vid: https://www.youtube.com/watch?v=IiyBeR-Guqw
+
+It does have an error in it, with the errored line in flake.nix commented out
+
+    {
+      description = "A very basic flake";
+    
+      inputs = {
+    #    nixpkgs.url = "github:nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        home-manager.url = "github:nix-community/home-manager/master";
+        home-manager.inputs.nixpkgs.follows = "nixpkgs";
+      };
+    
+      outputs = { self, nixpkgs, home-manager, ... }:
+        let
+          system = "x86_64-linux";
+          lib = nixpkgs.lib;
+          pkgs = nixpkgs.legacyPackages.${system};
+        in {
+        nixosConfigurations = {
+          eva = lib.nixosSystem {
+            inherit system;
+	    modules = [ ./configuration.nix ];
+          };
+        };
+        homeConfigurations = {
+          asulk = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+	    modules = [ ./home.nix ];
+          };
+        };
+      };
+    }
